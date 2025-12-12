@@ -1,0 +1,62 @@
+
+.particles {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.particle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: var(--primary-green);
+  border-radius: 50%;
+  opacity: 0.4;
+  animation: float 8s infinite ease-in-out;
+}
+
+.particle:nth-child(2n) {
+  background: var(--accent-blue);
+}
+
+.particle:nth-child(3n) {
+  background: var(--accent-purple);
+}
+
+.connection-line {
+  position: absolute;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--primary-green),
+    transparent
+  );
+  height: 1px;
+  opacity: 0.15;
+  animation: connectFloat 12s infinite ease-in-out;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 0.4;
+  }
+  50% {
+    transform: translateY(-150px);
+    opacity: 0.8;
+  }
+}
+
+@keyframes connectFloat {
+  0%, 100% {
+    transform: translateX(-60px);
+    opacity: 0;
+  }
+  50% {
+    transform: translateX(60px);
+    opacity: 0.5;
+  }
+}

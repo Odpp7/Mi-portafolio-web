@@ -1,0 +1,299 @@
+:root {
+  --rotate-x: 0deg;
+  --rotate-y: 0deg;
+  --pointer-x: 50%;
+  --pointer-y: 50%;
+  --behind-glow-color: rgba(0, 255, 157, 0.4);
+  --behind-glow-size: 50%;
+  --inner-gradient: linear-gradient(145deg, rgba(27, 40, 56, 0.6), rgba(0, 255, 157, 0.1));
+  --icon: none;
+  --grain: none;
+}
+
+.profile-card-wrapper {
+  perspective: 1000px;
+  width: fit-content;
+  margin: 0 auto;
+  position: relative;
+}
+
+.profile-card-wrapper:hover .behind-glow,
+.profile-card.active ~ .behind-glow {
+  opacity: 0.8;
+}
+
+.profile-card {
+  width: 380px;
+  height: 520px;
+  border-radius: 24px;
+  position: relative;
+  background: var(--inner-gradient);
+  border: 1px solid rgba(0, 255, 157, 0.2);
+  overflow: hidden;
+  transition: transform 0.1s ease-out, border-color 0.3s ease, box-shadow 0.3s ease;
+  transform-style: preserve-3d;
+  transform: rotateX(var(--rotate-x)) rotateY(var(--rotate-y));
+  box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.5),
+    0 0 40px rgba(0, 255, 157, 0.15);
+  cursor: pointer;
+  z-index: 1;
+}
+
+
+.card-avatar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 75%;
+  z-index: 1;
+}
+
+.card-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center bottom;
+}
+
+
+/* Efecto glare (brillo verde) */
+.card-glare {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  background: 
+    radial-gradient(
+      circle at var(--pointer-x) var(--pointer-y),
+      rgba(0, 255, 157, 0.25) 0%,
+      rgba(0, 168, 255, 0.1) 40%,
+      transparent 70%
+    );
+  mix-blend-mode: soft-light;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.profile-card:hover .card-glare {
+  opacity: 1;
+}
+
+/* Contenido superior */
+.card-content {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  right: 0;
+  z-index: 4;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.card-content h3 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+  background: linear-gradient(to bottom, 
+    var(--primary-green), 
+    var(--dark-green)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 30px rgba(0, 255, 157, 0.5);
+  filter: drop-shadow(0 0 10px rgba(0, 255, 157, 0.3));
+}
+
+.card-content p {
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0;
+  color: var(--text-secondary);
+  text-shadow: 0 0 10px rgba(0, 255, 157, 0.2);
+}
+
+/* Footer con info de usuario */
+.card-footer {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: rgba(10, 15, 30, 0.8);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 255, 157, 0.2);
+  border-radius: 16px;
+  padding: 12px 14px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 255, 157, 0.1);
+}
+
+.card-footer:hover {
+  background: rgba(10, 15, 30, 0.9);
+  border-color: rgba(0, 255, 157, 0.4);
+  box-shadow: 0 4px 30px rgba(0, 255, 157, 0.2);
+}
+
+.user-details {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+
+.mini-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid rgba(0, 255, 157, 0.3);
+  flex-shrink: 0;
+  box-shadow: 0 0 15px rgba(0, 255, 157, 0.3);
+}
+
+.mini-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.user-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.handle {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--primary-green);
+  line-height: 1;
+  text-shadow: 0 0 10px rgba(0, 255, 157, 0.5);
+}
+
+.status {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  line-height: 1;
+}
+
+.contact-btn {
+  background: rgba(0, 255, 157, 0.1);
+  border: 1px solid rgba(0, 255, 157, 0.3);
+  border-radius: 10px;
+  padding: 10px 18px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--primary-green);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(10px);
+  white-space: nowrap;
+  box-shadow: 0 0 20px rgba(0, 255, 157, 0.2);
+}
+
+.contact-btn:hover {
+  background: var(--primary-green);
+  color: var(--bg-primary);
+  border-color: var(--primary-green);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 30px rgba(0, 255, 157, 0.4);
+}
+
+.contact-btn:active {
+  transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .profile-card {
+    width: 320px;
+    height: 450px;
+  }
+
+  .card-content h3 {
+    font-size: 2rem;
+  }
+
+  .card-content p {
+    font-size: 0.9rem;
+  }
+
+  .card-footer {
+    bottom: 15px;
+    left: 15px;
+    right: 15px;
+    padding: 10px 12px;
+  }
+
+  .mini-avatar {
+    width: 36px;
+    height: 36px;
+  }
+
+  .handle {
+    font-size: 13px;
+  }
+
+  .status {
+    font-size: 11px;
+  }
+
+  .contact-btn {
+    padding: 8px 14px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-card {
+    width: 280px;
+    height: 400px;
+  }
+
+  .card-content {
+    top: 30px;
+  }
+
+  .card-content h3 {
+    font-size: 1.7rem;
+  }
+
+  .card-content p {
+    font-size: 0.85rem;
+  }
+
+  .card-footer {
+    padding: 8px 10px;
+  }
+
+  .mini-avatar {
+    width: 32px;
+    height: 32px;
+  }
+
+  .user-details {
+    gap: 10px;
+  }
+
+  .handle {
+    font-size: 12px;
+  }
+
+  .status {
+    font-size: 10px;
+  }
+
+  .contact-btn {
+    padding: 6px 12px;
+    font-size: 11px;
+  }
+}

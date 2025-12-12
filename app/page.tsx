@@ -38,7 +38,7 @@ export default function Home() {
         <Projects />
       </section>
 
-      <section className="p-[70px]" id="contact">
+      <section className="p-[70px] fondo2" id="contact">
         <ContactMe/>
       </section>
 

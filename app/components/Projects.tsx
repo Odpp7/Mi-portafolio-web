@@ -55,8 +55,10 @@ export default function Projects() {
                       ))}
                     </div>
                     <div className="project-links">
-                      <a href="#" className="project-link"><SquareArrowOutUpRight />Demo</a>
-                      <a href="#" className="project-link"><Github />Código</a>
+                      {project.demo && (
+                        <a href={project.demo} target="_blank" rel="noopener noreferrer" className="project-link"><SquareArrowOutUpRight />Demo</a>
+                      )}
+                      <a href={project.codigo} target="_blank" rel="noopener noreferrer" className="project-link"><Github />Código</a>
                     </div>
                   </div>
                 </div>
@@ -71,7 +73,7 @@ export default function Projects() {
 
         <div className="carousel-dots">
           {Array.from({ length: totalDots }).map((_, index) => (
-            <button key={index} className={`carousel-dot ${currentSlide === index ? 'active' : ''}`} onClick={() => goToSlide(index)}/>
+            <button key={index} className={`carousel-dot ${currentSlide === index ? 'active' : ''}`} onClick={() => goToSlide(index)} />
           ))}
         </div>
       </div>

@@ -1,8 +1,36 @@
 'use client'
 
 import "@/app/styles/ContactMe.css"
+import { Mail, MapPin, Linkedin, Send } from 'lucide-react'
+import { useState, FormEvent } from 'react'
 
 export default function ContactMe() {
+  const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: ''})
+  const [enviado, setEnviado] = useState(false)
+  const [mensaje, setMensaje] = useState('')
+
+  const HandleSubmit = async (e:React.FormEvent) => {
+    e.preventDefault();
+
+    setEnviado(true)
+    setMensaje('Enviando correo...')
+
+    const respuesta = await fetch('api/contact', {
+      method: "POST",
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData)
+    })
+
+    if(respuesta.ok){
+      setMensaje("Enviado correctamente")
+      setFormData({ name: '', email: '', subject: '', message: '' })
+    } else{
+      setMensaje("Error al enviar")
+    }
+
+    setEnviado(false)
+  }
+
   return (
     <div className="container">
       <div className="section-header">
@@ -16,27 +44,17 @@ export default function ContactMe() {
           
           <div className="contact-item">
             <div className="contact-icon">
-              <i className="fas fa-envelope"></i>
+              <Mail/>
             </div>
             <div className="contact-details">
               <h4>Email</h4>
-              <p>oscar.duque@example.com</p>
+              <p>oddpaz7@gmail.com</p>
             </div>
           </div>
 
           <div className="contact-item">
             <div className="contact-icon">
-              <i className="fas fa-phone"></i>
-            </div>
-            <div className="contact-details">
-              <h4>Teléfono</h4>
-              <p>+57 300 123 4567</p>
-            </div>
-          </div>
-
-          <div className="contact-item">
-            <div className="contact-icon">
-              <i className="fas fa-map-marker-alt"></i>
+              <MapPin/>
             </div>
             <div className="contact-details">
               <h4>Ubicación</h4>
@@ -46,7 +64,7 @@ export default function ContactMe() {
 
           <div className="contact-item">
             <div className="contact-icon">
-              <i className="fab fa-linkedin-in"></i>
+              <Linkedin />
             </div>
             <div className="contact-details">
               <h4>LinkedIn</h4>
@@ -56,30 +74,62 @@ export default function ContactMe() {
         </div>
 
         <div className="contact-form">
-          <form>
+          <form onSubmit={HandleSubmit}>
             <div className="form-group">
               <label htmlFor="name" className="form-label">Nombre</label>
-              <input type="text" id="name" className="form-input" placeholder="Tu nombre completo" required />
+              <input 
+                type="text" 
+                id="name" 
+                className="form-input" 
+                placeholder="Tu nombre completo" 
+                value={formData.name}
+                onChange={(e) => setFormData({...formData, name: e.target.value})}
+                required 
+              />
             </div>
             
             <div className="form-group">
               <label htmlFor="email" className="form-label">Email</label>
-              <input type="email" id="email" className="form-input" placeholder="tu.email@ejemplo.com" required />
+              <input 
+                type="email" 
+                id="email" 
+                className="form-input" 
+                placeholder="tu.email@ejemplo.com" 
+                value={formData.email}
+                onChange={(e) => setFormData({...formData, email: e.target.value})}
+                required 
+              />
             </div>
             
             <div className="form-group">
               <label htmlFor="subject" className="form-label">Asunto</label>
-              <input type="text" id="subject" className="form-input" placeholder="Asunto del mensaje" required />
+              <input 
+                type="text" 
+                id="subject" 
+                className="form-input" 
+                placeholder="Asunto del mensaje" 
+                value={formData.subject}
+                onChange={(e) => setFormData({...formData, subject: e.target.value})}
+                required 
+              />
             </div>
             
             <div className="form-group">
               <label htmlFor="message" className="form-label">Mensaje</label>
-              <textarea id="message" className="form-input form-textarea" placeholder="Cuéntame sobre tu proyecto..." required></textarea>
+              <textarea 
+                id="message" 
+                className="form-input form-textarea" 
+                placeholder="Cuéntame sobre tu proyecto..." 
+                value={formData.message}
+                onChange={(e) => setFormData({...formData, message: e.target.value})}
+                required
+              ></textarea>
             </div>
             
-            <button type="submit" className="btn" style={{ width: '100%' }}>
-              <i className="fas fa-paper-plane"></i>
-              Enviar Mensaje
+            {mensaje && <p style={{textAlign: 'center', marginBottom: '10px', color:'white'}}>{mensaje}</p>}
+            
+            <button type="submit" className="btn" style={{ width: '100%' }} disabled={enviado}> 
+              <Send/> Enviar Correo
             </button>
           </form>
         </div>

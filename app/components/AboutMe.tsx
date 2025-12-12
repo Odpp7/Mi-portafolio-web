@@ -30,7 +30,7 @@ export default function AboutMe() {
 
                     <p>Además del trabajo en la web, desarrollo aplicaciones móviles que integran interfaces cuidadas y buen rendimiento. También tengo experiencia en Back-End y en arquitecturas completas, lo que me permite abordar proyectos de forma integral y mantener la coherencia entre cliente y servidor.</p>
 
-                    <p>En mis tiempos libres soy un apasionado por la musica, asisto a una iglesia donde le sirvio a Dios tocando un instrumento musical, la guitarra electrica y un apasionado por los videojuegos y el deporte, practico futbol y mas. </p>
+                    <p>En mis tiempos libres soy un apasionado por: </p>
 
                     <BounceCards
                         className="custom-bounceCards"

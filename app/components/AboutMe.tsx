@@ -2,11 +2,11 @@ import "@/app/styles/AboutMe.css"
 import BounceCards from "./BounceCards"
 
 const images = [
-    "https://picsum.photos/400/400?grayscale",
-    "https://picsum.photos/500/500?grayscale",
-    "https://picsum.photos/600/600?grayscale",
-    "https://picsum.photos/700/700?grayscale",
-    "https://picsum.photos/300/300?grayscale"
+    "/Foto1.jpg",
+    "/foto3.jpg",
+    "/Foto5.jpg",
+    "/Foto4.jpg",
+    "/Foto2.jpg"
 ];
 
 const transformStyles = [

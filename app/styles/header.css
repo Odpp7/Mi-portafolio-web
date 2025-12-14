@@ -53,3 +53,23 @@ header {
 .links.active::after {
   width: 100%;
 }
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .lista {
+    display: none;
+  }
+
+  .lista.menu-open {
+    right: 0;
+  }
+
+  .links::after {
+    left: 0;
+    transform: translateX(0);
+    bottom: -4px;
+  }
+}

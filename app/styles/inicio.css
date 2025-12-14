@@ -102,3 +102,10 @@
         transform: translateY(0);
     }
 }
+
+@media (max-width: 768px) {
+  .inicio{
+    display: flex;
+    flex-direction: column;
+  }
+}

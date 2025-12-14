@@ -183,26 +183,139 @@
     transform: scale(1.2);
 }
 
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .carousel-arrow-left {
+        left: -60px;
+    }
+    
+    .carousel-arrow-right {
+        right: -60px;
+    }
+}
+
 @media (max-width: 768px) {
+    .container {
+        padding: 0;
+    }
+
     .carousel-container {
-        margin: 0 50px;
+        margin: 0;
+        padding: 0;
     }
     
     .carousel-slide {
         min-width: 100%;
+        padding: 0 1.5rem;
     }
     
+    /* Ocultar flechas en móvil */
     .carousel-arrow {
-        width: 40px;
-        height: 40px;
-        font-size: 1rem;
+        display: none;
     }
-    
-    .carousel-arrow-left {
-        left: -45px;
+
+    .project-card {
+        max-width: 500px;
+        margin: 0 auto;
     }
-    
-    .carousel-arrow-right {
-        right: -45px;
+
+    .project-image {
+        height: 200px;
+    }
+
+    .project-content {
+        padding: 18px 24px;
+        min-height: auto;
+    }
+
+    .project-title {
+        font-size: 1.2rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .project-description {
+        font-size: 0.92rem;
+        line-height: 1.5;
+        margin-bottom: 1rem;
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .project-tech {
+        gap: 0.45rem;
+        margin-bottom: 1rem;
+    }
+
+    .tech-tag {
+        font-size: 0.72rem;
+        padding: 0.3rem 0.75rem;
+    }
+
+    .project-links {
+        gap: 1rem;
+    }
+
+    .project-link {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .carousel-slide {
+        padding: 0 1rem;
+    }
+
+    .project-card {
+        max-width: 100%;
+    }
+
+    .project-image {
+        height: 180px;
+    }
+
+    .project-content {
+        padding: 15px 20px;
+    }
+
+    .project-title {
+        font-size: 1.1rem;
+        margin-bottom: 0.7rem;
+    }
+
+    .project-description {
+        font-size: 0.88rem;
+        line-height: 1.45;
+        margin-bottom: 0.9rem;
+        -webkit-line-clamp: 3;
+    }
+
+    .project-tech {
+        gap: 0.4rem;
+        margin-bottom: 0.9rem;
+    }
+
+    .tech-tag {
+        font-size: 0.68rem;
+        padding: 0.25rem 0.65rem;
+    }
+
+    .project-links {
+        gap: 0.8rem;
+    }
+
+    .project-link {
+        font-size: 0.85rem;
+    }
+
+    .carousel-dots {
+        gap: 0.5rem;
+        margin-top: 1.5rem;
+    }
+
+    .carousel-dot {
+        width: 10px;
+        height: 10px;
     }
 }

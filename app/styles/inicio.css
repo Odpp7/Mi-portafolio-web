@@ -103,9 +103,80 @@
     }
 }
 
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .hero-title {
+        font-size: 3rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.3rem;
+    }
+
+    .hero-description {
+        font-size: 1.1rem;
+    }
+}
+
 @media (max-width: 768px) {
-  .inicio{
-    display: flex;
-    flex-direction: column;
-  }
+    .inicio {
+        flex-direction: column !important;
+        height: auto !important;
+        min-height: 100vh;
+        padding: 100px 20px 40px !important;
+        gap: 30px;
+    }
+
+    .hero-title {
+        font-size: 2.2rem;
+        letter-spacing: 1px;
+    }
+
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .hero-description {
+        font-size: 1rem;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+    }
+
+    .hero-content {
+        max-width: 100%;
+        padding: 0 10px;
+    }
+
+    .hero-buttons {
+        display: flex;
+        width: 100%;
+        gap: 0.8rem;
+    }
+
+    .btn {
+        width: 40%;
+        justify-content: center;
+        padding: 0.9rem 1.5rem;
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .hero-title {
+        font-size: 30px;
+    }
+
+    .hero-subtitle {
+        display: none;
+    }
+
+    .hero-description {
+        font-size: 0.95rem;
+    }
+
+    .btn {
+        padding: 0.8rem 1.2rem;
+        font-size: 0.9rem;
+    }
 }

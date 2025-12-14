@@ -1,30 +1,75 @@
 'use client'
 
 import "@/app/styles/Project.css"
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { projects } from '@/app/data/MyProjects'
 import { ArrowRight, ArrowLeft, Github, SquareArrowOutUpRight } from 'lucide-react'
 
-
 export default function Projects() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [cardsView, setCardsView] = useState(2);
+  const [touchStart, setTouchStart] = useState(0);
+  const [touchEnd, setTouchEnd] = useState(0);
+  const carouselRef = useRef<HTMLDivElement>(null);
 
-  const cardsview = 2
-  const maxSlide = projects.length - cardsview
+  // Detectar tamaño de pantalla
+  useEffect(() => {
+    const handleResize = () => {
+      setCardsView(window.innerWidth <= 768 ? 1 : 2);
+      setCurrentSlide(0);
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const maxSlide = projects.length - cardsView;
+  const slidePercentage = cardsView === 1 ? 100 : 50;
 
   const nextSlide = () => {
-    setCurrentSlide(currentSlide >= maxSlide ? 0 : currentSlide + 1)
+    setCurrentSlide(currentSlide >= maxSlide ? 0 : currentSlide + 1);
   };
 
   const prevSlide = () => {
-    setCurrentSlide(currentSlide === 0 ? maxSlide : currentSlide - 1)
+    setCurrentSlide(currentSlide === 0 ? maxSlide : currentSlide - 1);
   };
 
   const goToSlide = (index: number) => {
-    setCurrentSlide(index)
+    setCurrentSlide(index);
   };
 
-  const totalDots = projects.length - cardsview + 1
+  // Manejo de touch events para swipe
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    
+    const distance = touchStart - touchEnd;
+    const minSwipeDistance = 50; // Distancia mínima para considerar un swipe
+
+    if (distance > minSwipeDistance) {
+      // Swipe left - siguiente
+      nextSlide();
+    }
+
+    if (distance < -minSwipeDistance) {
+      // Swipe right - anterior
+      prevSlide();
+    }
+
+    // Reset
+    setTouchStart(0);
+    setTouchEnd(0);
+  };
+
+  const totalDots = projects.length - cardsView + 1;
 
   return (
     <div className="container">
@@ -35,16 +80,25 @@ export default function Projects() {
 
       <div className="carousel-container">
         <button className="carousel-arrow carousel-arrow-left" onClick={prevSlide}>
-          <i className="fas fa-chevron-left"><ArrowLeft /></i>
+          <ArrowLeft />
         </button>
 
-        <div className="carousel-wrapper">
-          <div className="carousel-track" style={{ transform: `translateX(-${currentSlide * 50}%)` }} >
+        <div 
+          className="carousel-wrapper"
+          ref={carouselRef}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+        >
+          <div 
+            className="carousel-track" 
+            style={{ transform: `translateX(-${currentSlide * slidePercentage}%)` }}
+          >
             {projects.map((project, index) => (
               <div key={index} className="carousel-slide">
                 <div className="project-card">
                   <div className="project-image">
-                    <img className="w-full h-full object-cover" src={project.imagen} alt="" />
+                    <img className="w-full h-full object-cover" src={project.imagen} alt={project.title} />
                   </div>
                   <div className="project-content">
                     <h3 className="project-title">{project.title}</h3>
@@ -56,9 +110,13 @@ export default function Projects() {
                     </div>
                     <div className="project-links">
                       {project.demo && (
-                        <a href={project.demo} target="_blank" rel="noopener noreferrer" className="project-link"><SquareArrowOutUpRight />Demo</a>
+                        <a href={project.demo} target="_blank" rel="noopener noreferrer" className="project-link">
+                          <SquareArrowOutUpRight size={18} />Demo
+                        </a>
                       )}
-                      <a href={project.codigo} target="_blank" rel="noopener noreferrer" className="project-link"><Github />Código</a>
+                      <a href={project.codigo} target="_blank" rel="noopener noreferrer" className="project-link">
+                        <Github size={18} />Código
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -68,12 +126,16 @@ export default function Projects() {
         </div>
 
         <button className="carousel-arrow carousel-arrow-right" onClick={nextSlide}>
-          <i className="fas fa-chevron-right"><ArrowRight /></i>
+          <ArrowRight />
         </button>
 
         <div className="carousel-dots">
           {Array.from({ length: totalDots }).map((_, index) => (
-            <button key={index} className={`carousel-dot ${currentSlide === index ? 'active' : ''}`} onClick={() => goToSlide(index)} />
+            <button 
+              key={index} 
+              className={`carousel-dot ${currentSlide === index ? 'active' : ''}`} 
+              onClick={() => goToSlide(index)} 
+            />
           ))}
         </div>
       </div>

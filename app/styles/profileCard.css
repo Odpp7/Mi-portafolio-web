@@ -255,8 +255,8 @@
 
 @media (max-width: 480px) {
   .profile-card {
-    width: 280px;
-    height: 400px;
+    width: 250px;
+    height: 350px;
   }
 
   .card-content {

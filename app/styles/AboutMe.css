@@ -92,6 +92,10 @@
         padding: 50px;
     }
 
+    .letra1{
+        display: none;
+    }
+
     .section-title {
         font-size: 2rem;
     }

@@ -13,11 +13,11 @@ export default function Info() {
             <div className="hero-buttons">
                 <a href="#projects" className="btn">
                     <Code/>
-                    Ver Proyectos
+                    Proyectos
                 </a>
                 <a href="#contact" className="btn btn-secondary">
                     <Mail/>
-                    Contactar
+                    Contacto
                 </a>
             </div>
         </div>

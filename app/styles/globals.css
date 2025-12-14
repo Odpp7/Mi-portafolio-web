@@ -14,13 +14,14 @@
   --border-glow: rgba(0, 255, 157, 0.3);
 }
 
-html {
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100dvh;
+  background: linear-gradient(135deg,var(--bg-primary),var(--bg-secondary), var(--bg-tertiary));
   scroll-behavior: smooth;
 }
 
-body {
-  background: linear-gradient(135deg, var(--bg-primary), var(--bg-secondary), var(--bg-tertiary));
-}
 
 ::-webkit-scrollbar {
   width: 8px;

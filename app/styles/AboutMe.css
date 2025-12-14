@@ -88,6 +88,10 @@
         gap: 2rem;
     }
 
+    .about{
+        padding: 50px;
+    }
+
     .section-title {
         font-size: 2rem;
     }

@@ -267,6 +267,10 @@
         padding: 0 1rem;
     }
 
+    .fondo{
+        padding: 40px;
+    }
+
     .project-card {
         max-width: 100%;
     }

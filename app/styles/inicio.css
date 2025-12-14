@@ -163,6 +163,10 @@
 
 @media (max-width: 480px) {
 
+    .inicio{
+        padding: 10px;
+    }
+
     .hero-title {
         font-size: 30px;
     }

@@ -22,7 +22,7 @@ export default function Home() {
         </nav>
       </header>
 
-      <section className="p-[70px] h-[960px] flex justify-evenly items-center border-b border-b-[var(--border-glow)] inicio" id="inicio">
+      <section className="h-[960px] flex justify-evenly items-center border-b border-b-[var(--border-glow)] inicio" id="inicio">
         <div>
           <ProfileCard avatarUrl="/Foto.png" miniAvatarUrl="/Avatar.png" showUserInfo={true} enableTilt={true} onContactClick={() => { document.getElementById("contact")?.scrollIntoView() }} />
         </div>

@@ -12,7 +12,6 @@ export default function Projects() {
   const [touchEnd, setTouchEnd] = useState(0);
   const carouselRef = useRef<HTMLDivElement>(null);
 
-  // Detectar tamaño de pantalla
   useEffect(() => {
     const handleResize = () => {
       setCardsView(window.innerWidth <= 768 ? 1 : 2);
@@ -39,7 +38,6 @@ export default function Projects() {
     setCurrentSlide(index);
   };
 
-  // Manejo de touch events para swipe
   const handleTouchStart = (e: React.TouchEvent) => {
     setTouchStart(e.targetTouches[0].clientX);
   };
@@ -52,19 +50,12 @@ export default function Projects() {
     if (!touchStart || !touchEnd) return;
     
     const distance = touchStart - touchEnd;
-    const minSwipeDistance = 50; // Distancia mínima para considerar un swipe
+    const minSwipeDistance = 50;
 
-    if (distance > minSwipeDistance) {
-      // Swipe left - siguiente
-      nextSlide();
-    }
+    if (distance > minSwipeDistance) { nextSlide(); }
 
-    if (distance < -minSwipeDistance) {
-      // Swipe right - anterior
-      prevSlide();
-    }
+    if (distance < -minSwipeDistance) { prevSlide(); }
 
-    // Reset
     setTouchStart(0);
     setTouchEnd(0);
   };
@@ -83,10 +74,7 @@ export default function Projects() {
           <ArrowLeft />
         </button>
 
-        <div 
-          className="carousel-wrapper"
-          ref={carouselRef}
-          onTouchStart={handleTouchStart}
+        <div className="carousel-wrapper" ref={carouselRef} onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
         >
@@ -131,11 +119,7 @@ export default function Projects() {
 
         <div className="carousel-dots">
           {Array.from({ length: totalDots }).map((_, index) => (
-            <button 
-              key={index} 
-              className={`carousel-dot ${currentSlide === index ? 'active' : ''}`} 
-              onClick={() => goToSlide(index)} 
-            />
+            <button key={index} className={`carousel-dot ${currentSlide === index ? 'active' : ''}`}  onClick={() => goToSlide(index)} />
           ))}
         </div>
       </div>

@@ -103,41 +103,27 @@
     }
 }
 
-/* Responsive Design */
-@media (max-width: 1024px) {
-    .hero-title {
-        font-size: 3rem;
-    }
-
-    .hero-subtitle {
-        font-size: 1.3rem;
-    }
-
-    .hero-description {
-        font-size: 1.1rem;
-    }
-}
-
 @media (max-width: 768px) {
+
     .inicio {
-        flex-direction: column !important;
-        height: auto !important;
-        min-height: 100vh;
-        padding: 100px 20px 40px !important;
+        flex-direction: column;
+        height: auto;
+        min-height: 100dvh;
+        padding: 70px 10px 30px;
         gap: 30px;
     }
 
     .hero-title {
-        font-size: 2.2rem;
+        font-size: 25px;
         letter-spacing: 1px;
     }
 
     .hero-subtitle {
-        font-size: 1.1rem;
+        display: none;
     }
 
     .hero-description {
-        font-size: 1rem;
+        font-size: 0.95rem;
         line-height: 1.6;
         margin-bottom: 1.5rem;
     }
@@ -156,31 +142,7 @@
     .btn {
         width: 40%;
         justify-content: center;
-        padding: 0.9rem 1.5rem;
-        font-size: 0.95rem;
-    }
-}
-
-@media (max-width: 480px) {
-
-    .inicio{
-        padding: 10px;
-    }
-
-    .hero-title {
-        font-size: 30px;
-    }
-
-    .hero-subtitle {
-        display: none;
-    }
-
-    .hero-description {
-        font-size: 0.95rem;
-    }
-
-    .btn {
-        padding: 0.8rem 1.2rem;
-        font-size: 0.9rem;
+        padding: 8px;
+        font-size: 13px;
     }
 }

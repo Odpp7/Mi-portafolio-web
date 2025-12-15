@@ -39,8 +39,8 @@ export default function ContactMe() {
       </div>
       <div className="contact-grid">
         <div className="contact-info">
-          <h3>¡Trabajemos Juntos!</h3>
-          <p>Siempre estoy abierto a nuevas oportunidades y proyectos interesantes. Si tienes una idea que quieres convertir en realidad, no dudes en contactarme.</p>
+          <h3 className="trabajemos">¡Trabajemos Juntos!</h3>
+          <p className="parrafo">Siempre estoy abierto a nuevas oportunidades y proyectos interesantes. Si tienes una idea que quieres convertir en realidad, no dudes en contactarme.</p>
           
           <div className="contact-item">
             <div className="contact-icon">

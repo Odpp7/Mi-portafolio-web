@@ -1,7 +1,10 @@
 .about {
-    background: rgba(13, 26, 22, 0.3);
     z-index: 2;
     border-bottom: 1px solid var(--border-glow);
+}
+
+.fondo{
+    background: rgba(13, 26, 22, 0.3);
 }
 
 .section-header {
@@ -83,6 +86,20 @@
 
 /* Responsive */
 @media (max-width: 768px) {
+
+    .section-title{
+        font-size: 25px;
+        margin-bottom: -25px;
+    }
+
+    .section-subtitle{
+        display: none;
+    }
+
+    .about-content{
+        font-size: 16px;
+    }
+
     .about-grid {
         grid-template-columns: 1fr;
         gap: 2rem;
@@ -94,9 +111,5 @@
 
     .letra1{
         display: none;
-    }
-
-    .section-title {
-        font-size: 2rem;
     }
 }

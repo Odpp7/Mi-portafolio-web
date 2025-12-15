@@ -34,7 +34,7 @@ export default function ProfileCard({
   miniAvatarUrl,
   name = 'Oscar Duque',
   title = 'Full Stack Developer',
-  handle = 'oscarduque',
+  handle = 'Odpp7',
   status = 'Online',
   contactText = 'Contactar',
   showUserInfo = true,

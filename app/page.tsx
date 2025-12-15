@@ -8,6 +8,7 @@ import AboutMe from "./components/AboutMe";
 import Projects from "./components/Projects";
 import ContactMe from "./components/ContactMe";
 import Footer from "./components/Footer";
+import Certificados from "./components/Certificados";
 
 export default function Home() {
   return (
@@ -37,6 +38,10 @@ export default function Home() {
 
       <section className="fondo border-b border-b-[var(--border-glow)] p-[70px]" id="projects">
         <Projects />
+      </section>
+
+      <section className="p-[70px] border-b border-b-[var(--border-glow)] fondoCertificado" id="certificados">
+        <Certificados/>
       </section>
 
       <section className="p-[70px] fondo2" id="contact">

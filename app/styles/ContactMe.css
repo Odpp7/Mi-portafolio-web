@@ -16,7 +16,7 @@
     align-items: start;
 }
 
-.contact-info h3 {
+.trabajemos {
     font-family: 'Orbitron', sans-serif;
     font-size: 1.8rem;
     font-weight: 600;
@@ -24,7 +24,7 @@
     color: var(--text-primary);
 }
 
-.contact-info p {
+.parrafo {
     color: var(--text-secondary);
     margin-bottom: 2rem;
     line-height: 1.7;
@@ -116,7 +116,6 @@
     font-family: inherit;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
     .contact-grid {
         grid-template-columns: 1fr;
@@ -124,6 +123,30 @@
     }
 
     .fondo2{
-        padding: 40px;
+        padding: 30px;
     }
+
+    .trabajemos{
+        text-align: center;
+        margin-top: -10px;
+        font-size: 22px;
+    }
+
+    .parrafo{
+        font-size: 15px;
+    }
+
+    .contact-item{
+        height: 80px;
+    }
+
+    .contact-icon{
+        width: 50px;
+        height: 50px
+    }
+
+    .contact-details{
+        font-size: 15px;
+    }
+    
 }

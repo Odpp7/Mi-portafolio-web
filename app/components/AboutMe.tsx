@@ -3,7 +3,7 @@ import BounceCards from "./BounceCards"
 
 const images = [
     "/Foto1.jpg",
-    "/foto3.jpg",
+    "/Foto3.jpg",
     "/Foto5.jpg",
     "/Foto4.jpg",
     "/Foto2.jpg"

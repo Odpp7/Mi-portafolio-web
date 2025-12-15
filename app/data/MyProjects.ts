@@ -25,7 +25,7 @@ export const projects = [
     },
 
     {
-        imagen: "/CrudPHP.jpg",
+        imagen: "/CrudPhp.jpg",
         title: "Crud Tienda de Productos - PHP",
         description: "Sistema CRUD para la gestión de productos con búsqueda, edición, eliminación, registro de usuarios e inicio de sesión, desarrollado con PHP y XAMPP.",
         techs: ["PHP", "PHPMyAdmin", "HTML", "CSS", "JavaScript", "MySQL", "XAMPP"],

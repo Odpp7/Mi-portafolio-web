@@ -9,6 +9,7 @@ import Projects from "./components/Projects";
 import ContactMe from "./components/ContactMe";
 import Footer from "./components/Footer";
 import Certificados from "./components/Certificados";
+import Chatbot from "./components/ChatBot";
 
 export default function Home() {
   return (
@@ -47,6 +48,8 @@ export default function Home() {
       <section className="p-[70px] fondo2" id="contact">
         <ContactMe/>
       </section>
+
+      <Chatbot/>
 
       <footer>
         <Footer/>

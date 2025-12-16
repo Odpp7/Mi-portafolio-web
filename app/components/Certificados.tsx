@@ -1,6 +1,7 @@
 'use client'
 
 import "@/app/styles/Certificados.css"
+import { CalendarDays, ShieldCheck } from "lucide-react";
 import { Certificate } from "../data/Certificados";
 
 export default function Certificados() {
@@ -25,16 +26,10 @@ export default function Certificados() {
                         </div>
 
                         <div className="curso-details">
-                            <span className="curso-date">
-                                <i className="far fa-calendar"></i>
-                                {Certificado.fecha}
-                            </span>
+                            <span className="curso-date"><CalendarDays/>{Certificado.fecha}</span>
                         </div>
                         <div className="curso-footer">
-                            <a href="#" className="curso-link">
-                                <i className="fas fa-certificate"></i>
-                                Ver Certificado
-                            </a>
+                            <a href="#" className="curso-link"><ShieldCheck/>Ver Certificado</a>
                         </div>
                     </div>
                 ))}

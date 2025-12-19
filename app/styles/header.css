@@ -2,7 +2,6 @@ header {
   position: fixed;
   width: 100%;
   background: rgba(10, 15, 30, 0.90);
-  backdrop-filter: blur(12px);
   border-bottom: 1px solid #00ff9d4d;
   transition: all 0.3s ease;
   padding: 15px;
@@ -54,6 +53,30 @@ header {
   width: 100%;
 }
 
+.social-link1 {
+    width: 50px;
+    height: 40px;
+    border-radius: 40%;
+    border: 2px solid var(--primary-green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-green);
+    transition: all 0.3s ease;
+}
+
+.social-link1:hover {
+    background: var(--primary-green);
+    color: var(--bg-primary);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 20px rgba(0, 255, 157, 0.4);
+}
+
+.logos{
+  width: 50px;
+  height: 25px;
+}
+
 @media (max-width: 768px) {
   .hamburger {
     display: flex;
@@ -71,5 +94,24 @@ header {
     left: 0;
     transform: translateX(0);
     bottom: -4px;
+  }
+      
+  .logo{
+    font-size: 18px;
+  }
+
+  .divlogo{
+    display: flex;
+    align-items: center;
+  }
+
+  .social-link1 {
+    width: 30px;
+    height: 30px;
+  }
+
+  .logos{
+    width: 30px;
+    height: 20px;
   }
 }

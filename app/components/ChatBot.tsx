@@ -6,7 +6,7 @@ import '@/app/styles/ChatBot.css';
 
 export default function Chatbot() {
   const [messages, setMessages] = useState([
-    { role: 'assistant', content: '¡Hola! 👋 Soy Magdiel, la asistente virtual del ingeniero Oscar Duque.' }
+    { role: 'assistant', content: '¡Hola! 👋 Soy Magdiel, la asistente virtual del Ingeniero Oscar Duque.' }
   ]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);

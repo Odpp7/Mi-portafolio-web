@@ -26,7 +26,7 @@ export default function Home() {
           <Links />
 
           <div className="flex gap-[15px]">
-            <a href="/cv_oscar_duque.pdf" download="Cv_Oscar_Duque.pdf" className="social-link1">
+            <a href="/Cv_Oscar_Duque.pdf" download="Cv_Oscar_Duque.pdf" className="social-link1">
               <FileUser className="logos" />
             </a>
             <a href="https://github.com/Odpp7" target="_blank" rel="noopener noreferrer" className="social-link1">
@@ -38,10 +38,10 @@ export default function Home() {
 
       <section className="h-[960px] flex justify-evenly items-center border-b border-b-[var(--border-glow)] inicio overflow-hidden" id="inicio">
         <motion.div
-          initial={{ opacity: 0, x: -50 }}
+          initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ amount: 0.3 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true, amount: 0.3 }}
         >
           <ProfileCard
             avatarUrl="/Foto.png"
@@ -53,10 +53,10 @@ export default function Home() {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, x: 50 }}
+          initial={{ opacity: 0, x: 20 }}
           whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          viewport={{ amount: 0.2 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          viewport={{ once: true, amount: 0.2 }}
         >
           <Info />
         </motion.div>
@@ -64,30 +64,30 @@ export default function Home() {
 
       <section className="about p-[70px] border-b border-b-[var(--border-glow)] overflow-hidden" id="about">
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 35 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ amount: 0.2 }}>
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true, amount: 0.2 }}>
           <AboutMe />
         </motion.div>
       </section>
 
       <section className="fondo border-b border-b-[var(--border-glow)] p-[70px] overflow-hidden" id="projects">
         <motion.div
-          initial={{ opacity: 0, x: 50 }}
+          initial={{ opacity: 0, x: 35 }}
           whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ amount: 0.2 }}>
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true, amount: 0.2 }}>
           <Projects />
         </motion.div>
       </section>
 
       <section className="p-[70px] border-b border-b-[var(--border-glow)] fondoCertificado overflow-hidden" id="certificados">
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 35 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ amount: 0.2 }}>
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true, amount: 0.2 }}>
           <Certificados />
         </motion.div>
       </section>
@@ -96,8 +96,8 @@ export default function Home() {
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ amount: 0.2 }}>
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true, amount: 0.2 }}>
           <ContactMe />
         </motion.div>
       </section>

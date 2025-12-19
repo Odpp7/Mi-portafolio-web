@@ -39,3 +39,13 @@ html, body {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--dark-green);
 }
+
+
+[data-framer-motion] {
+  will-change: transform, opacity;
+}
+
+
+.motion-safe {
+  will-change: auto;
+}

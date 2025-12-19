@@ -11,6 +11,9 @@ const getOrbitron = Orbitron({
 export const metadata: Metadata = {
   title: "Oscar Duque - Portfolio",
   description: "Full Stack Developer Portfolio",
+  icons: {
+    icon: "/Avatar.png",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
